@@ -38,61 +38,9 @@ ls.lat=d_json[loop].Location[1];
 ls.lng=d_json[loop].Location[0];
 locations.push(ls);
 }
-
+document.write(locations);
       </script>
-    <script>
     
-      function initMap() {
-
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: centroid
-        });
-
-       
-      
-     var markers;
-       var infoWindow = new google.maps.InfoWindow(), marker, i;
-
-        markers = locations.map(function(location, i) {
-          return new google.maps.Marker({
-
-            position: location,
-             icon: 'images/orange.png',
-            title:locations[i]
-          });
-
-        });
-
-        // Add a marker clusterer to manage the markers.
-          //if(_flag==0)
-          //flag is setting cluster to orange,red,green 
-          //{
-
-        //var markerCluster = new MarkerClusterer(map, markers,
-          //  {imagePath: 'images/o'});
-
-
-           //}
-
-         //var markerCluster = new MarkerClusterer(map, markers,
-           // {imagePath: 'images/g'});
-
-          //var markerCluster = new MarkerClusterer(map, markers,
-           // {imagePath: 'images/r'});
-
-         var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: 'images/b'});
-         //blue is testing
-
-
-
-      }
-
-    
- 
-
-    </script>
     <script src="markerclusterer.js">
     </script>
    <script async defer
