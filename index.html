@@ -38,7 +38,7 @@ ls.lat=d_json[loop].Location[1];
 ls.lng=d_json[loop].Location[0];
 locations.push(ls);
 }
-document.write(locations);
+document.write(JSON.stringify(locations));
       </script>
     
     <script src="markerclusterer.js">
