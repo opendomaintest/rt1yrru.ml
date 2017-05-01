@@ -20,26 +20,72 @@
   </head>
   <body>
     <div id="map"></div>
-    <script src="json_load.js"></script>
+    
       <script>
       var centroid={lat: 23, lng: 85};
       var _flag=0;
       var loop=0;
 var locations=[];
-
-for(loop=0;loop<d_json.length;loop++)
-{
-  
-  var ls={};
-  var s;
-  s="Name of the child : "+d_json[loop].ChildName+"<br>"+"Parent Name : "+d_json[loop].ParentName+"<br>"+"Date of Birth : "+d_json[loop].DOB;
-ls.msg=s;
-ls.lat=d_json[loop].Location[1];
-ls.lng=d_json[loop].Location[0];
-locations.push(ls);
-}
-document.write(JSON.stringify(locations));
+locations=[
+  {
+    "lat":23.35,
+    "lng":85
+  }
+  ];
       </script>
+    <script>
+    
+      function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: centroid
+        });
+
+       
+      
+     var markers;
+       var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+        markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+
+            position: location,
+             icon: 'images/orange.png',
+            title:locations[i]
+          });
+
+        });
+
+        // Add a marker clusterer to manage the markers.
+          //if(_flag==0)
+          //flag is setting cluster to orange,red,green 
+          //{
+
+        //var markerCluster = new MarkerClusterer(map, markers,
+          //  {imagePath: 'images/o'});
+
+
+           //}
+
+         //var markerCluster = new MarkerClusterer(map, markers,
+           // {imagePath: 'images/g'});
+
+          //var markerCluster = new MarkerClusterer(map, markers,
+           // {imagePath: 'images/r'});
+
+         var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'images/b'});
+         //blue is testing
+
+
+
+      }
+
+    
+ 
+
+    </script>
     
     <script src="markerclusterer.js">
     </script>
